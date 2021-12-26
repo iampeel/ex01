@@ -13,43 +13,39 @@
             margin: 10px 0 20px 0;
         }
 
+        /* 50이상은 빨간 색으로 만들기 위함 */
         .bad {
             color: red;
         }
     </style>
-    <!-- 
-RealtimeCityAir
-MSRDT: "202112261600",
-MSRRGN_NM: "도심권",
-MSRSTE_NM: "중구",
-PM10: 15,
-PM25: 11,
-O3: 0.031,
-NO2: 0.007,
-CO: 0.3,
-SO2: 0.002,
-IDEX_NM: "보통",
-IDEX_MVL: 51,
-ARPLT_MAIN: "O3"
- -->
+
     <script>
         function q1() {
+            // 버튼 클릭할 때 마다 추가되는 것을 방지
             $('#names-q1').empty()
             $.ajax({
                 type: "GET",
+                // 가져올 데이터 주소
                 url: "http://openapi.seoul.go.kr:8088/6d4d776b466c656533356a4b4b5872/json/RealtimeCityAir/1/99",
                 data: {},
                 success: function (response) {
+                    // 넘겨받은 데이터 중 RealtimeCityAir에서 row항목 할당
                     let rows = response['RealtimeCityAir']['row']
                     for (let i = 0; i < rows.length; i++) {
                         let gu_name = rows[i]['MSRSTE_NM']
                         let gu_mise = rows[i]['IDEX_MVL']
+                        // 추가시킬 html을 빈 상태로 만들고
                         let temp_html = ''
                         if (gu_mise > 50) {
+                            // 주의! let temp_html 이라고 쓰면 안됨
+                            // 값을 넣을 때 ${()}
+                            // 전체는 백틱키로 감싸고
+                            // 50 넘는 항목만 class="bad" 추가
                             temp_html = `<li class="bad">${(gu_name)} : ${(gu_mise)} </li>`
                         } else {
                             temp_html = `<li>${(gu_name)} : ${(gu_mise)} </li>`
                         }
+                        // 추가
                         $('#names-q1').append(temp_html);
                     }
                 }
@@ -70,10 +66,6 @@ ARPLT_MAIN: "O3"
         <p>업데이트 버튼을 누를 때마다 지웠다 새로 씌여져야 합니다.</p>
         <button onclick="q1()">업데이트</button>
         <ul id="names-q1">
-            <li>중구 : 82</li>
-            <li>종로구 : 87</li>
-            <li>용산구 : 84</li>
-            <li>은평구 : 82</li>
         </ul>
     </div>
 </body>
