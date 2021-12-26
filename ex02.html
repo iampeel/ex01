@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+    <title>상품</title>
+    <style>
+        .wrap {
+            margin: 10px auto;
+            width: 500px;
+            /* background-color: lightblue; */
+        }
+
+        #img_goods {
+            width: 100%;
+            height: 100%;
+            /* object-fit: cover; */
+        }
+
+        button#order {
+            margin: auto;
+            display: block;
+        }
+
+        #pri,
+        #tit {
+            display: inline;
+        }
+    </style>
+    <!-- 
+    pri : price
+    des : destription
+    tit : title
+ -->
+</head>
+
+<body>
+    <div class="wrap">
+        <img id="img_goods" src="https://dimg.donga.com/wps/SPORTS/IMAGE/2017/01/25/82582526.1.jpg">
+        <br>
+        <br>
+        <div class="goods">
+            <h2 id="tit">최리 화보</h2>
+            <div id="pri">가격: 3000원/개</div>
+            <div id="des">이 상품으로 말할 거 같으면 팬 사인회가서 받은 배우 최리 화보입니다.</div>
+        </div>
+        <br>
+        <div class="order">
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">주문자 이름</span>
+                </div>
+                <input type="text" class="form-control" aria-label="Default"
+                    aria-describedby="inputGroup-sizing-default">
+            </div>
+
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <label class="input-group-text" for="inputGroupSelect01">수량</label>
+                </div>
+                <select class="custom-select" id="inputGroupSelect01">
+                    <option selected> -- 수량을 선택하세요 -- </option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                </select>
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">주소</span>
+                </div>
+                <input type="text" class="form-control" aria-label="Default"
+                    aria-describedby="inputGroup-sizing-default">
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">전화번호</span>
+                </div>
+                <input type="text" class="form-control" aria-label="Default"
+                    aria-describedby="inputGroup-sizing-default">
+            </div>
+            <button type="button" class="btn btn-primary" id="order">주문하기</button>
+        </div>
+
+    </div>
+</body>
+
+</html>
